@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sandra — Assistente Pessoal</title>
+<meta name="description" content="Sandra, assistente pessoal virtual do Sabino De Almeida. Informação, organização, apoio académico e contacto direto.">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#06132f;color:#fff}
+a{text-decoration:none;color:inherit}.nav{position:sticky;top:0;z-index:10;background:#07132d;display:flex;align-items:center;justify-content:space-between;padding:14px 5%;border-bottom:1px solid #244b85}
+.logo{font-weight:800;font-size:23px;color:#ffc94d}.logo span{display:block;font-size:10px;color:#fff;letter-spacing:1px}
+.menu{display:flex;gap:22px;align-items:center;font-size:14px}.menu a:hover{color:#ffc94d}
+.btn{display:inline-block;padding:13px 19px;border-radius:30px;font-weight:700}.gold{background:#ffc94d;color:#07132d}.outline{border:1px solid #ffc94d}
+.hero{max-width:1200px;margin:auto;padding:28px 5% 45px}.hero img{width:100%;display:block;border-radius:22px;border:1px solid #28599d}
+section{max-width:1100px;margin:auto;padding:55px 5%}.title{text-align:center;margin-bottom:28px}.title h2{font-size:34px;margin:8px}.title p{color:#b8c7dc}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.card{background:#0b234c;border:1px solid #2861ad;border-radius:18px;padding:20px;text-align:center}.icon{font-size:30px}.card h3{font-size:17px}.card p{font-size:14px;line-height:1.5;color:#b8c7dc}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.about img{width:100%;border-radius:20px}.about p{color:#c2cee0;line-height:1.7}.ticks{line-height:2}.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}.box{background:#0b234c;border:1px solid #2861ad;border-radius:20px;padding:25px}
+label{display:block;margin:12px 0 6px;font-weight:700}input,select,textarea{width:100%;padding:13px;border-radius:10px;border:1px solid #49698e;font-size:15px}textarea{min-height:120px}button{border:0;width:100%;padding:14px;border-radius:12px;background:#ffc94d;color:#07132d;font-weight:800;margin-top:15px;font-size:16px}
+footer{padding:40px 5%;text-align:center;border-top:1px solid #244b85;color:#9fb0c9}.wa{background:#25d366;color:#fff;margin-top:15px}
+@media(max-width:850px){.menu{display:none}.grid{grid-template-columns:1fr 1fr}.about,.contact{grid-template-columns:1fr}}@media(max-width:480px){.grid{grid-template-columns:1fr}.hero{padding-top:15px}section{padding:38px 5%}.title h2{font-size:28px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="logo">Ⓢ SANDRA<span>ASSISTENTE PESSOAL</span></div>
+  <div class="menu"><a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#contactos">Contactos</a></div>
+  <a class="btn gold" href="https://wa.me/244921409045?text=Ol%C3%A1%20Sandra%2C%20vim%20atrav%C3%A9s%20do%20site." target="_blank">WhatsApp</a>
+</nav>
+
+<main>
+<section id="inicio" class="hero"><img src="sandra-hero.png" alt="Sandra — Assistente Pessoal"></section>
+
+<section id="servicos">
+<div class="title"><h2>Serviços</h2><p>Como posso ajudar?</p></div>
+<div class="grid">
+<div class="card"><div class="icon">💬</div><h3>Responder dúvidas</h3><p>Ajuda com estudos, tecnologia, carreira e informação.</p></div>
+<div class="card"><div class="icon">💡</div><h3>Dicas e conselhos</h3><p>Produtividade, disciplina, desenvolvimento pessoal e decisões.</p></div>
+<div class="card"><div class="icon">📅</div><h3>Organização</h3><p>Planos, rotinas, tarefas e lembretes importantes.</p></div>
+<div class="card"><div class="icon">💻</div><h3>Apoio académico</h3><p>Informática, pesquisas, trabalhos e orientação.</p></div>
+<div class="card"><div class="icon">💼</div><h3>Oportunidades</h3><p>Emprego, cursos, estágios, negócios e projetos.</p></div>
+</div>
+</section>
+
+<section id="sobre">
+<div class="about">
+<img src="sandra-hero.png" alt="Sandra">
+<div><div class="btn outline">🌟 Sobre a Sandra</div><h2>Quem sou eu?</h2>
+<p>Sou a Sandra, assistente pessoal virtual do Sabino De Almeida. Fui criada para ajudar a organizar ideias, encontrar informação, orientar decisões e facilitar o contacto com o Sabino.</p>
+<div class="ticks">✅ Comunicação clara e direta<br>✅ Organização e praticidade<br>✅ Foco em resultados<br>✅ Discrição e confiança</div></div>
+</div>
+</section>
+
+<section id="contactos">
+<div class="title"><h2>Envia a tua mensagem</h2><p>Preenche o formulário ou fala diretamente pelo WhatsApp.</p></div>
+<div class="contact">
+<div class="box">
+<h3>📩 Contacto por mensagem</h3>
+<form action="https://formsubmit.co/Sabinodealmeida08@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Nova mensagem — Sandra Assistente">
+<input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://sabinodealmeida08.github.io/Sabino-De-Almeida-/">
+<label>Nome</label><input name="Nome" required placeholder="O teu nome">
+<label>Contacto</label><input name="Contacto" required placeholder="WhatsApp, telefone ou e-mail">
+<label>Assunto</label><select name="Assunto" required><option value="">Seleciona</option><option>Informação</option><option>Contacto profissional</option><option>Pedido de serviço</option><option>Outro</option></select>
+<label>Mensagem</label><textarea name="Mensagem" required placeholder="Escreve a tua mensagem..."></textarea>
+<button type="submit">📩 Enviar mensagem</button>
+</form></div>
+<div class="box"><h3>📱 Contacto rápido</h3><p>Queres falar diretamente com o Sabino?</p><a class="btn wa" href="https://wa.me/244921409045?text=Ol%C3%A1%20Sabino%2C%20vim%20atrav%C3%A9s%20da%20p%C3%A1gina%20da%20Sandra." target="_blank">💬 Falar no WhatsApp</a><p style="margin-top:25px;color:#b8c7dc">📞 +244 921 409 045<br>✉️ Sabinodealmeida08@gmail.com<br>📍 Luanda, Angola</p></div>
+</div>
+</section>
+</main>
+<footer>SANDRA — Assistente Pessoal do Sabino De Almeida<br><small>© 2026 · Todos os direitos reservados.</small></footer>
+</body></html>
