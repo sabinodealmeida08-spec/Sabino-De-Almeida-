@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sabinodealmeida08-spec.github.io/Sabino-De-Almeida-/sitemap.xml
