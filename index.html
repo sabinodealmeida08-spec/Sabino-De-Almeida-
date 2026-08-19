@@ -15,6 +15,8 @@
     height: 100%;
     object-fit: contain;
     display: block;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
 }
     
 .btn-conheca {
@@ -413,9 +415,18 @@ function mudarImagemDestaque() {
 
     if (!imagem) return;
 
-    indiceDestaque = (indiceDestaque + 1) % imagensDestaque.length;
+    imagem.style.opacity = "0";
 
-    imagem.src = imagensDestaque[indiceDestaque];
+    setTimeout(function() {
+
+        indiceDestaque =
+            (indiceDestaque + 1) % imagensDestaque.length;
+
+        imagem.src = imagensDestaque[indiceDestaque];
+
+        imagem.style.opacity = "1";
+
+    }, 800);
 }
 
 setInterval(mudarImagemDestaque, 3000);
