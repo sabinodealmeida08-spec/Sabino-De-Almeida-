@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt">
   <style>
+.projetos-destaque {
+    width: 100%;
+    max-width: 500px;
+    height: 220px;
+    margin: 20px auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.projetos-destaque img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+    
 .btn-conheca {
     display: inline-block;
     padding: 15px 32px;
@@ -63,7 +79,12 @@ section{padding:65px 0;border-top:1px solid var(--line)}.section-title{font-size
 <p class="lead">Eletricista de Construção Civil / Ajudante de Eletricista, com formação técnica complementar em Informática. Profissional responsável, disciplinado, proativo e com forte vontade de aprender.</p>
 <div class="buttons"><a class="btn primary" href="#contactos">Entrar em contacto</a><a class="btn" href="#competencias">Ver competências</a><a class="btn" href="CV-Sabino-De-Almeida.pdf" download>Baixar CV</a></div>
 </div><div class="photo-wrap"><img class="photo" src="sabino-de-almeida.png" alt="Sabino De Almeida"></div></div></section>
-<a href="sobre-sabino-de-almeida.html" class="btn-conheca">
+
+  <div class="projetos-destaque">
+    <img id="imagemDestaque" src="Projeto1.jpg" alt="Projeto de Sabino De Almeida">
+</div>
+  
+  <a href="sobre-sabino-de-almeida.html" class="btn-conheca">
     Conheça-me
 </a>
 <!-- SOBRE MIM / BIOGRAFIA PROFISSIONAL -->
@@ -387,5 +408,30 @@ async function responderSandra() {
         );
     }
 }
+  
+const imagensDestaque = [
+    "Projeto1.jpg",
+    "Projeto2.jpg",
+    "Projeto3.jpg",
+    "Projeto4.jpg",
+    "Projeto5.jpg",
+    "Projeto6.jpg",
+    "Projeto7.jpg",
+    "Projeto8.jpg"
+];
+
+let indiceDestaque = 0;
+
+setInterval(function () {
+    indiceDestaque++;
+
+    if (indiceDestaque >= imagensDestaque.length) {
+        indiceDestaque = 0;
+    }
+
+    document.getElementById("imagemDestaque").src =
+        imagensDestaque[indiceDestaque];
+
+}, 3000);
 </script>
 </body></html>
