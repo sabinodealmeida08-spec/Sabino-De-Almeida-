@@ -310,103 +310,7 @@ function adicionarMensagem(texto, tipo) {
     mensagens.scrollTop = mensagens.scrollHeight;
 }
 
-function responderSandra() {
-
-    const input = document.getElementById("sandra-input");
-
-    const pergunta = input.value.trim();
-
-    if (!pergunta) return;
-
-    adicionarMensagem(pergunta, "user");
-
-    input.value = "";
-
-    const texto = pergunta.toLowerCase();
-
-    let resposta = "";
-
-    if (
-        texto.includes("quem é") ||
-        texto.includes("quem e") ||
-        texto.includes("sabino")
-    ) {
-
-        resposta =
-        "Sabino De Almeida é um jovem profissional angolano, interessado em tecnologia, eletricidade, informática e desenvolvimento profissional. Atualmente procura oportunidades para aplicar e desenvolver as suas competências.";
-
-    }
-
-    else if (
-        texto.includes("formação") ||
-        texto.includes("formacao") ||
-        texto.includes("curso") ||
-        texto.includes("estudo")
-    ) {
-
-        resposta =
-        "O Sabino concluiu a formação em Eletricidade de Construção Civil e está a frequentar o 4.º ano do curso técnico de Informática.";
-
-    }
-
-    else if (
-        texto.includes("competência") ||
-        texto.includes("competencia") ||
-        texto.includes("habilidade") ||
-        texto.includes("habilidades")
-    ) {
-
-        resposta =
-        "Entre as suas áreas de competência estão eletricidade de construção civil, instalações elétricas, informática e conhecimentos relacionados com redes e tecnologia.";
-
-    }
-
-    else if (
-        texto.includes("projeto") ||
-        texto.includes("projetos")
-    ) {
-
-        resposta =
-        "Um dos seus projetos académicos é a implementação de uma rede LAN na Faculdade de Direito da UNIBELAS. Também desenvolve projetos pessoais ligados à tecnologia, comunicação e empreendedorismo.";
-
-    }
-
-    else if (
-        texto.includes("linkedin")
-    ) {
-
-        resposta =
-        'Pode conhecer o perfil profissional do Sabino no <a href="https://www.linkedin.com/in/sabino-de-almeida-donga-ant%C3%B3nio-42b5933b" target="_blank">LinkedIn</a>.';
-
-    }
-
-    else if (
-        texto.includes("cv") ||
-        texto.includes("currículo") ||
-        texto.includes("curriculo")
-    ) {
-
-        resposta =
-        'O currículo do Sabino está disponível no seu site. Para consultar a apresentação profissional, visite a página <a href="sobre-sabino-de-almeida.html">Sobre Sabino</a>.';
-
-    }
-
-    else if (
-        texto.includes("contacto") ||
-        texto.includes("contato") ||
-        texto.includes("email") ||
-        texto.includes("e-mail")
-    ) {
-
-        resposta =
-        'Para entrar em contacto profissional com o Sabino, pode utilizar o e-mail disponível no site ou visitar o seu perfil no LinkedIn.';
-
-    }
-
-    else if (
-        texto.includes("electricidade") ||
-        texto.includes("eletricidade")
-    ) {
+    
 
         resposta =
         "A eletricidade é uma das principais áreas de formação do Sabino. Ele concluiu o curso de Eletricidade de Construção Civil e tem interesse em oportunidades como ajudante de eletricista, eletricista de construção civil e técnico de instalações elétricas.";
@@ -423,33 +327,65 @@ function responderSandra() {
         "Além da formação em eletricidade, o Sabino está a concluir o curso técnico de Informática, fortalecendo o seu perfil na área de tecnologia.";
 
     }
+async function responderSandra() {
+    const input = document.getElementById("sandra-input");
+    const pergunta = input.value.trim();
 
-    else if (
-        texto.includes("olá") ||
-        texto.includes("ola") ||
-        texto.includes("oi") ||
-        texto.includes("bom dia") ||
-        texto.includes("boa tarde") ||
-        texto.includes("boa noite")
-    ) {
+    if (!pergunta) return;
 
-        resposta =
-        "Olá! 👋 Sou a Sandra Forever. Como posso ajudar a conhecer melhor o Sabino De Almeida?";
+    adicionarMensagem(pergunta, "user");
+    input.value = "";
 
+    adicionarMensagem("A Sandra está a pensar... 🤔", "bot");
+
+    try {
+        const resposta = await fetch(
+            "https://sandra-forever.sabinodealmeida08.workers.dev/",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    pergunta: pergunta
+                })
+            }
+        );
+
+        const dados = await resposta.json();
+
+        const mensagens =
+            document.getElementById("sandra-messages");
+
+        const ultimaMensagem =
+            mensagens.lastElementChild;
+
+        if (ultimaMensagem) {
+            ultimaMensagem.remove();
+        }
+
+        adicionarMensagem(
+            dados.resposta || "A Sandra não conseguiu responder.",
+            "bot"
+        );
+
+    } catch (erro) {
+
+        const mensagens =
+            document.getElementById("sandra-messages");
+
+        const ultimaMensagem =
+            mensagens.lastElementChild;
+
+        if (ultimaMensagem) {
+            ultimaMensagem.remove();
+        }
+
+        adicionarMensagem(
+            "Desculpa, não consegui ligar-me ao meu servidor neste momento. 😕",
+            "bot"
+        );
     }
-
-    else {
-
-        resposta =
-        "Ainda não tenho informação suficiente para responder a essa pergunta com segurança. Pode perguntar sobre o Sabino, a sua formação, competências, projetos, eletricidade, informática, LinkedIn ou currículo.";
-
-    }
-
-    setTimeout(function() {
-
-        adicionarMensagem(resposta, "bot");
-
-    }, 400);
 }
 </script>
 </body></html>
