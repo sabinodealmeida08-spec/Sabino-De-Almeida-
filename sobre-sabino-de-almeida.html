@@ -785,51 +785,46 @@
     cursor: pointer;
     z-index: 100000;
 }
-.grelha-imagens {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    max-width: 850px;
-    margin: 25px auto;
-    padding: 10px;
+</style>
+    
+ <style>
+#projetos .grelha-imagens {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 20px auto !important;
 }
 
-.quadro-imagem {
-    width: 100%;
-    height: 150px;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+#projetos .quadro-imagem {
+    width: 100% !important;
+    height: 120px !important;
+    max-height: 120px !important;
+    overflow: hidden !important;
+    border-radius: 10px !important;
 }
 
-.quadro-imagem img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.quadro-imagem img:hover {
-    transform: scale(1.03);
+#projetos .quadro-imagem img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
 }
 
 @media (max-width: 700px) {
-    .grelha-imagens {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+    #projetos .grelha-imagens {
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 
-    .quadro-imagem {
-        height: 120px;
+    #projetos .quadro-imagem {
+        height: 110px !important;
+        max-height: 110px !important;
     }
 }
-    
-</style>
+</style>   
 
 <script>
 function abrirImagem(src) {
