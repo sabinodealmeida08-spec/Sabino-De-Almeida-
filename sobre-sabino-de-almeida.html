@@ -646,16 +646,41 @@
 
 
 <!-- PROJETOS -->
-<section id="projetos">
-<img src="Projeto1.jpg" alt="Projeto 1 de Sabino De Almeida" onclick="abrirImagem(this.src)">
-<img src="Projeto2.jpg" alt="Projeto 2 de Sabino De Almeida" onclick="abrirImagem(this.src)">
-<img src="Projeto3.jpg" alt="Projeto 3 de Sabino De Almeida" onclick="abrirImagem(this.src)">
-<img src="Projeto4.jpg" alt="Projeto 4 de Sabino De Almeida" onclick="abrirImagem(this.src)">
-<img src="Projeto5.jpg" alt="Projeto 5 de Sabino De Almeida" onclick="abrirImagem(this.src)">
-<img src="Projeto6.jpg" alt="Projeto 6 de Sabino De Almeida" onclick="abrirImagem(this.src)">
-<img src="Projeto7.jpg" alt="Projeto 7 de Sabino De Almeida" onclick="abrirImagem(this.src)">
-<img src="Projeto8.jpg" alt="Projeto 8 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+<div class="grelha-imagens">
 
+    <div class="quadro-imagem">
+        <img src="Projeto1.jpg" alt="Projeto 1 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+    </div>
+
+    <div class="quadro-imagem">
+        <img src="Projeto2.jpg" alt="Projeto 2 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+    </div>
+
+    <div class="quadro-imagem">
+        <img src="Projeto3.jpg" alt="Projeto 3 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+    </div>
+
+    <div class="quadro-imagem">
+        <img src="Projeto4.jpg" alt="Projeto 4 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+    </div>
+
+    <div class="quadro-imagem">
+        <img src="Projeto5.jpg" alt="Projeto 5 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+    </div>
+
+    <div class="quadro-imagem">
+        <img src="Projeto6.jpg" alt="Projeto 6 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+    </div>
+
+    <div class="quadro-imagem">
+        <img src="Projeto7.jpg" alt="Projeto 7 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+    </div>
+
+    <div class="quadro-imagem">
+        <img src="Projeto8.jpg" alt="Projeto 8 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+    </div>
+
+</div>
     
     <div class="container">
 
@@ -785,46 +810,44 @@
     cursor: pointer;
     z-index: 100000;
 }
-    #projetos .grelha-imagens {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 10px !important;
-    width: 100% !important;
-    max-width: 800px !important;
-    margin: 20px auto !important;
+#projetos .grelha-imagens {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 800px;
+    margin: 25px auto;
 }
 
 #projetos .quadro-imagem {
-    width: 100% !important;
-    height: 120px !important;
-    max-height: 120px !important;
-    overflow: hidden !important;
-    border-radius: 10px !important;
+    width: 100%;
+    height: 120px;
+    background: #0d1b2d;
+    border: 1px solid #21364e;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #projetos .quadro-imagem img {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    object-fit: contain !important;
-    display: block !important;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    display: block;
 }
 
 @media (max-width: 700px) {
     #projetos .grelha-imagens {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     #projetos .quadro-imagem {
-        height: 110px !important;
-        max-height: 110px !important;
+        height: 120px;
     }
 }
 </style>   
-</style>
-    
- <style>
      
 <script>
 function abrirImagem(src) {
