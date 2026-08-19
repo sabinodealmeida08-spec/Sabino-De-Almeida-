@@ -648,7 +648,14 @@
 <!-- PROJETOS -->
 
 <section id="projetos">
-
+<img src="Projeto/1.jpg" alt="Projeto 1 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+<img src="Projeto/2.jpg" alt="Projeto 2 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+<img src="Projeto/3.jpg" alt="Projeto 3 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+<img src="Projeto/4.jpg" alt="Projeto 4 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+<img src="Projeto/5.jpg" alt="Projeto 5 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+<img src="Projeto/6.jpg" alt="Projeto 6 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+<img src="Projeto/7.jpg" alt="Projeto 7 de Sabino De Almeida" onclick="abrirImagem(this.src)">
+<img src="Projeto/8.jpg" alt="Projeto 8 de Sabino De Almeida" onclick="abrirImagem(this.src)">
     <div class="container">
 
         <h2 class="section-title">
@@ -727,7 +734,86 @@
     </div>
 
 </section>
+<!-- VISUALIZADOR DE IMAGENS -->
+<div id="visualizadorImagem" onclick="fecharImagem()">
 
+    <button class="fecharImagem" onclick="fecharImagem(event)">
+        ×
+    </button>
+
+    <img id="imagemGrande" src="" alt="Imagem ampliada">
+
+</div>
+
+<style>
+#visualizadorImagem {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#imagemGrande {
+    max-width: 95%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.fecharImagem {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: black;
+    font-size: 30px;
+    line-height: 40px;
+    cursor: pointer;
+    z-index: 100000;
+}
+
+.grelha-imagens img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.grelha-imagens img:hover {
+    transform: scale(1.03);
+}
+</style>
+
+<script>
+function abrirImagem(src) {
+    const visualizador = document.getElementById("visualizadorImagem");
+    const imagem = document.getElementById("imagemGrande");
+
+    imagem.src = src;
+    visualizador.style.display = "flex";
+}
+
+function fecharImagem(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    document.getElementById("visualizadorImagem").style.display = "none";
+    document.getElementById("imagemGrande").src = "";
+}
+</script>
 
 <!-- DIFERENCIAIS -->
 
