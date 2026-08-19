@@ -422,16 +422,16 @@ const imagensDestaque = [
 
 let indiceDestaque = 0;
 
-setInterval(function () {
-    indiceDestaque++;
+function mudarImagemDestaque() {
+    const imagem = document.getElementById("imagemDestaque");
 
-    if (indiceDestaque >= imagensDestaque.length) {
-        indiceDestaque = 0;
-    }
+    if (!imagem) return;
 
-    document.getElementById("imagemDestaque").src =
-        imagensDestaque[indiceDestaque];
+    indiceDestaque = (indiceDestaque + 1) % imagensDestaque.length;
 
-}, 3000);
+    imagem.src = imagensDestaque[indiceDestaque];
+}
+
+setInterval(mudarImagemDestaque, 3000);
 </script>
 </body></html>
