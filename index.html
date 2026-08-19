@@ -136,4 +136,320 @@ section{padding:65px 0;border-top:1px solid var(--line)}.section-title{font-size
 </div><div class="buttons"><a class="btn primary" href="https://wa.me/244921409045" target="_blank" rel="noopener">WhatsApp</a><a class="btn" href="mailto:sabinodealmeida08@gmail.com">Enviar e-mail</a></div></div></section>
 </main>
 <footer>© 2026 Sabino De Almeida Donga António • Perfil profissional<br><small>Assistência digital: Sandra Forever</small></footer>
+  <!-- SANDRA FOREVER - ASSISTENTE VIRTUAL -->
+<style>
+#sandra-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 22px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+}
+
+#sandra-chat {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 85px;
+    width: 340px;
+    max-width: calc(100% - 40px);
+    height: 500px;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    z-index: 10000;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    font-family: Arial, sans-serif;
+}
+
+.sandra-header {
+    background: #0d6efd;
+    color: white;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sandra-header strong {
+    font-size: 18px;
+}
+
+#sandra-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#sandra-messages {
+    height: 370px;
+    overflow-y: auto;
+    padding: 15px;
+    background: #f5f7fa;
+}
+
+.sandra-message {
+    margin-bottom: 12px;
+    padding: 11px 13px;
+    border-radius: 14px;
+    max-width: 85%;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.sandra-bot {
+    background: white;
+    color: #222;
+    margin-right: auto;
+}
+
+.sandra-user {
+    background: #0d6efd;
+    color: white;
+    margin-left: auto;
+}
+
+.sandra-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: white;
+}
+
+#sandra-input {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 14px;
+    outline: none;
+}
+
+#sandra-send {
+    margin-left: 8px;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    background: #0d6efd;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+</style>
+
+<button id="sandra-button" onclick="abrirSandra()">
+    ✨ Falar com Sandra
+</button>
+
+<div id="sandra-chat">
+
+    <div class="sandra-header">
+        <strong>✨ Sandra Forever</strong>
+        <button id="sandra-close" onclick="fecharSandra()">×</button>
+    </div>
+
+    <div id="sandra-messages">
+
+        <div class="sandra-message sandra-bot">
+            Olá! 👋 Eu sou a Sandra Forever, assistente virtual do Sabino De Almeida.
+            <br><br>
+            Pode perguntar-me sobre a formação, competências, projetos, experiência,
+            contactos ou percurso profissional do Sabino.
+        </div>
+
+    </div>
+
+    <div class="sandra-input-area">
+        <input
+            type="text"
+            id="sandra-input"
+            placeholder="Faça uma pergunta..."
+            onkeydown="if(event.key==='Enter') responderSandra()"
+        >
+
+        <button id="sandra-send" onclick="responderSandra()">
+            ➤
+        </button>
+    </div>
+
+</div>
+
+<script>
+function abrirSandra() {
+    document.getElementById("sandra-chat").style.display = "block";
+}
+
+function fecharSandra() {
+    document.getElementById("sandra-chat").style.display = "none";
+}
+
+function adicionarMensagem(texto, tipo) {
+
+    const mensagens = document.getElementById("sandra-messages");
+
+    const mensagem = document.createElement("div");
+
+    mensagem.className =
+        "sandra-message " +
+        (tipo === "user" ? "sandra-user" : "sandra-bot");
+
+    mensagem.innerHTML = texto;
+
+    mensagens.appendChild(mensagem);
+
+    mensagens.scrollTop = mensagens.scrollHeight;
+}
+
+function responderSandra() {
+
+    const input = document.getElementById("sandra-input");
+
+    const pergunta = input.value.trim();
+
+    if (!pergunta) return;
+
+    adicionarMensagem(pergunta, "user");
+
+    input.value = "";
+
+    const texto = pergunta.toLowerCase();
+
+    let resposta = "";
+
+    if (
+        texto.includes("quem é") ||
+        texto.includes("quem e") ||
+        texto.includes("sabino")
+    ) {
+
+        resposta =
+        "Sabino De Almeida é um jovem profissional angolano, interessado em tecnologia, eletricidade, informática e desenvolvimento profissional. Atualmente procura oportunidades para aplicar e desenvolver as suas competências.";
+
+    }
+
+    else if (
+        texto.includes("formação") ||
+        texto.includes("formacao") ||
+        texto.includes("curso") ||
+        texto.includes("estudo")
+    ) {
+
+        resposta =
+        "O Sabino concluiu a formação em Eletricidade de Construção Civil e está a frequentar o 4.º ano do curso técnico de Informática.";
+
+    }
+
+    else if (
+        texto.includes("competência") ||
+        texto.includes("competencia") ||
+        texto.includes("habilidade") ||
+        texto.includes("habilidades")
+    ) {
+
+        resposta =
+        "Entre as suas áreas de competência estão eletricidade de construção civil, instalações elétricas, informática e conhecimentos relacionados com redes e tecnologia.";
+
+    }
+
+    else if (
+        texto.includes("projeto") ||
+        texto.includes("projetos")
+    ) {
+
+        resposta =
+        "Um dos seus projetos académicos é a implementação de uma rede LAN na Faculdade de Direito da UNIBELAS. Também desenvolve projetos pessoais ligados à tecnologia, comunicação e empreendedorismo.";
+
+    }
+
+    else if (
+        texto.includes("linkedin")
+    ) {
+
+        resposta =
+        'Pode conhecer o perfil profissional do Sabino no <a href="https://www.linkedin.com/in/sabino-de-almeida-donga-ant%C3%B3nio-42b5933b" target="_blank">LinkedIn</a>.';
+
+    }
+
+    else if (
+        texto.includes("cv") ||
+        texto.includes("currículo") ||
+        texto.includes("curriculo")
+    ) {
+
+        resposta =
+        'O currículo do Sabino está disponível no seu site. Para consultar a apresentação profissional, visite a página <a href="sobre-sabino-de-almeida.html">Sobre Sabino</a>.';
+
+    }
+
+    else if (
+        texto.includes("contacto") ||
+        texto.includes("contato") ||
+        texto.includes("email") ||
+        texto.includes("e-mail")
+    ) {
+
+        resposta =
+        'Para entrar em contacto profissional com o Sabino, pode utilizar o e-mail disponível no site ou visitar o seu perfil no LinkedIn.';
+
+    }
+
+    else if (
+        texto.includes("electricidade") ||
+        texto.includes("eletricidade")
+    ) {
+
+        resposta =
+        "A eletricidade é uma das principais áreas de formação do Sabino. Ele concluiu o curso de Eletricidade de Construção Civil e tem interesse em oportunidades como ajudante de eletricista, eletricista de construção civil e técnico de instalações elétricas.";
+
+    }
+
+    else if (
+        texto.includes("informática") ||
+        texto.includes("informatica") ||
+        texto.includes("tecnologia")
+    ) {
+
+        resposta =
+        "Além da formação em eletricidade, o Sabino está a concluir o curso técnico de Informática, fortalecendo o seu perfil na área de tecnologia.";
+
+    }
+
+    else if (
+        texto.includes("olá") ||
+        texto.includes("ola") ||
+        texto.includes("oi") ||
+        texto.includes("bom dia") ||
+        texto.includes("boa tarde") ||
+        texto.includes("boa noite")
+    ) {
+
+        resposta =
+        "Olá! 👋 Sou a Sandra Forever. Como posso ajudar a conhecer melhor o Sabino De Almeida?";
+
+    }
+
+    else {
+
+        resposta =
+        "Ainda não tenho informação suficiente para responder a essa pergunta com segurança. Pode perguntar sobre o Sabino, a sua formação, competências, projetos, eletricidade, informática, LinkedIn ou currículo.";
+
+    }
+
+    setTimeout(function() {
+
+        adicionarMensagem(resposta, "bot");
+
+    }, 400);
+}
+</script>
 </body></html>
